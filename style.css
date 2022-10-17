@@ -1,8 +1,38 @@
 *{
+    background-color: #696969;
+}
 
+.tituloHome{
+    color: white;
+}
+
+.resumo{
+    color: white;
+}
+
+.paragrafoResumo{
+    color: white;
+    margin-bottom: 30px;
+}
+
+.linkJogo{
+    color: white;
+    background-color: green;
+    text-decoration: none;
+    border: solid 3px;
+    padding: 10px;
 }
 
 .tituloJogo{
     text-align: center;
     font-size: 80px;
+    color: white;
+}
+
+.linkHome{
+    color: white;
+    background-color: green;
+    text-decoration: none;
+    border: solid 3px;
+    padding: 10px;
 }
