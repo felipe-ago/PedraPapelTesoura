@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Pedra Papel Tesoura</title>  
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1 class="tituloJogo">Aqui Irá Iniciar o Jogo</h1>
-        <a class="linkHome" href="index.html">Voltar para Home</a>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pedra Papel Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="tituloJogo">Você é o jogador da <span style="color: red; font-style: italic;">ESQUERDA</span>, faça sua
+        jogada:</h1>
+    <div class="containerJogo">
+        <div class="imgJogo">
+            <img class="pedraE" src="/img/Pedra Esquerda.png">
+            <img class="papelE" src="/img/Papel Esquerda.png">
+            <img class="tesouraE" src="/img/Tesoura Esquerda.png">
+            <img class="pedraD" src="/img/Pedra Direita.png">
+            <img class="papelD" src="/img/Papel Direita.png">
+            <img class="tesouraD" src="/img/Tesoura Direita.png">
+        </div>
+        <div class="placar">
+            <table class="resultado" border="5" bordercolor="white" cellpadding="10">
+                <tr>
+                    <td>Jogador 1</td>
+                    <td>0</td>
+                    <td>X</td>
+                    <td>0</td>
+                    <td>Jogador 2</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a class="linkHome" href="index.html">Voltar para Home</a>
+</body>
+
 </html>

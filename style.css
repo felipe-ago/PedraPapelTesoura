@@ -1,38 +1,128 @@
-*{
+* {
     background-color: #696969;
 }
 
-.tituloHome{
-    color: white;
+.main {
+    text-align: center;
 }
 
-.resumo{
+.tituloHome {
     color: white;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-size: 55px;
 }
 
-.paragrafoResumo{
-    color: white;
-    margin-bottom: 30px;
+.resumo {
+    text-align: center;
 }
 
-.linkJogo{
+.tituloResumo {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.paragrafoResumo {
+    color: white;
+    margin-bottom: 50px;
+    font-size: 20px;
+    max-width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.linkJogo {
     color: white;
     background-color: green;
     text-decoration: none;
+    font-size: 50px;
     border: solid 3px;
-    padding: 10px;
+    padding: 50px 20%;
+    position: relative;
+    top: 100px;
 }
 
-.tituloJogo{
+.tituloJogo {
     text-align: center;
     font-size: 80px;
     color: white;
 }
 
-.linkHome{
+.containerJogo {
+    margin-top: 30px;
+    width: 98vw;
+    height: 65vh;
+    padding: 10px;
+}
+
+.jogar{
+    position: absolute;
+    top: 500px;
+    left: 800px;
+    height: 100px;
+    width: 300px;
+    font-size: 20px;
+    color: white;
+    background-color: orange;
+}
+
+.pedraE,
+.pedraD,
+.papelE,
+.papelD,
+.tesouraE,
+.tesouraD {
+    height: 170px;
+    position: absolute;
+    opacity: 10%;
+}
+
+.pedraE,
+.papelE,
+.tesouraE {
+    left: 30px;
+}
+
+.papelE{
+    top: 430px;
+}
+
+.tesouraE{
+    bottom: 130px;
+}
+
+.pedraD,
+.papelD,
+.tesouraD {
+    right: 30px;
+}
+
+.papelD{
+    top: 430px;
+}
+
+.tesouraD{
+    bottom: 130px;
+}
+
+.resultado{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    left: 650px;
+    top: 230px;
+    width: 30vw;
+    text-align: center;
+}
+
+.linkHome {
     color: white;
     background-color: green;
     text-decoration: none;
     border: solid 3px;
     padding: 10px;
+    position: relative;
+    top: 80px;
 }
