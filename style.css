@@ -46,8 +46,13 @@
 
 .tituloJogo {
     text-align: center;
-    font-size: 80px;
+    font-size: 60px;
     color: white;
+}
+
+.vencedor{
+    text-align: center;
+    font-size: 30px;
 }
 
 .containerJogo {
@@ -57,7 +62,7 @@
     padding: 10px;
 }
 
-.jogar{
+.jogar {
     position: absolute;
     top: 500px;
     left: 800px;
@@ -68,53 +73,39 @@
     background-color: orange;
 }
 
-.pedraE,
-.pedraD,
-.papelE,
-.papelD,
-.tesouraE,
-.tesouraD {
-    height: 170px;
-    position: absolute;
-    opacity: 10%;
+.escolhaInimigo,
+.escolhaJogador{
+    display: flex;
+    margin-right: -65%;
+    width: 50%;
 }
 
-.pedraE,
-.papelE,
-.tesouraE {
-    left: 30px;
-}
-
-.papelE{
-    top: 430px;
-}
-
-.tesouraE{
-    bottom: 130px;
-}
-
-.pedraD,
-.papelD,
-.tesouraD {
-    right: 30px;
-}
-
-.papelD{
-    top: 430px;
-}
-
-.tesouraD{
-    bottom: 130px;
-}
-
-.resultado{
+.resultado {
     font-size: 40px;
     color: white;
-    position: absolute;
-    left: 650px;
-    top: 230px;
+    position: relative;
+    left: 780px;
+    top: 30px;
     width: 30vw;
     text-align: center;
+}
+
+.limpar {
+    width: 200px;
+    height: 45px;
+    position: relative;
+    top: 95px;
+    left: 1500px;
+    background-color: rgb(156, 31, 31);
+    color: white;
+    font-style: unset;
+}
+
+.escolhaJogador img,
+.escolhaInimigo img {
+    max-width: 200px;
+    opacity: 0.3;
+    cursor: pointer;
 }
 
 .linkHome {
@@ -124,5 +115,5 @@
     border: solid 3px;
     padding: 10px;
     position: relative;
-    top: 80px;
+    top: 50px;
 }

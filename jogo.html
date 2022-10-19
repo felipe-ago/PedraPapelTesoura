@@ -10,28 +10,127 @@
 <body>
     <h1 class="tituloJogo">Você é o jogador da <span style="color: red; font-style: italic;">ESQUERDA</span>, faça sua
         jogada:</h1>
+    <h2 class="vencedor"></h2>
     <div class="containerJogo">
         <div class="imgJogo">
-            <img class="pedraE" src="/img/Pedra Esquerda.png">
-            <img class="papelE" src="/img/Papel Esquerda.png">
-            <img class="tesouraE" src="/img/Tesoura Esquerda.png">
-            <img class="pedraD" src="/img/Pedra Direita.png">
-            <img class="papelD" src="/img/Papel Direita.png">
-            <img class="tesouraD" src="/img/Tesoura Direita.png">
-        </div>
-        <div class="placar">
-            <table class="resultado" border="5" bordercolor="white" cellpadding="10">
-                <tr>
-                    <td>Jogador 1</td>
-                    <td>0</td>
-                    <td>X</td>
-                    <td>0</td>
-                    <td>Jogador 2</td>
-                </tr>
-            </table>
+            <div class="escolhaJogador">
+                <div><img class="pedraE" src="/img/Pedra Esquerda.png"></div>
+                <div><img class="papelE" src="/img/Papel Esquerda.png"></div>
+                <div><img class="tesouraE" src="/img/Tesoura Esquerda.png"></div>
+            </div>
+            <div class="escolhaInimigo">
+                <div><img class="pedraD" src="/img/Pedra Direita.png"></div>
+                <div><img class="papelD" src="/img/Papel Direita.png"></div>
+                <div><img class="tesouraD" src="/img/Tesoura Direita.png"></div>
+            </div>
+            <div class="placar">
+                <button class="limpar">REINICIAR</button>
+                <table class="resultado" border="5" bordercolor="white" cellpadding="10">
+                    <tr>
+                        <td>Jogador 1</td>
+                        <td>0</td>
+                        <td>X</td>
+                        <td>0</td>
+                        <td>Jogador 2</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <a class="linkHome" href="index.html">Voltar para Home</a>
+
+    <script>
+        var elementos = document.querySelectorAll('.escolhaJogador div > img');
+        var opcaoJogador = "";
+        var opcaoInimigo = "";
+
+        function validarVitoria() {
+
+            let vencedor = document.querySelector(".vencedor");
+
+            if (opcaoJogador == "pedraE") {
+                if (opcaoInimigo == "pedraD") {
+                    vencedor.innerHTML = "Deu Empate!";
+                    vencedor.style.color = 'orange';
+                } else if (opcaoInimigo == "papelD") {
+                    vencedor.innerHTML = "Vitória do Inimigo!";
+                    vencedor.style.color = 'red';
+                } else if (opcaoInimigo == "tesouraD") {
+                    vencedor.innerHTML = "Vitória do Player!";
+                    vencedor.style.color = 'greenyellow';
+                }
+            }
+
+            if (opcaoJogador == "papelE") {
+                if (opcaoInimigo == "pedraD") {
+                    vencedor.innerHTML = "Vitória do Player!";
+                    vencedor.style.color = 'greenyellow';
+                } else if (opcaoInimigo == "papelD") {
+                    vencedor.innerHTML = "Deu Empate!";
+                    vencedor.style.color = 'orange';
+                } else if (opcaoInimigo == "tesouraD") {
+                    vencedor.innerHTML = "Vitória do Inimigo!";
+                    vencedor.style.color = 'red';
+                }
+            }
+
+            if (opcaoJogador == "tesouraE") {
+                if (opcaoInimigo == "pedraD") {
+                    vencedor.innerHTML = "Vitória do Inimigo!";
+                    vencedor.style.color = 'red';
+                } else if (opcaoInimigo == "papelD") {
+                    vencedor.innerHTML = "Vitória do Player!";
+                    vencedor.style.color = 'greenyellow';
+                } else if (opcaoInimigo == "tesouraD") {
+                    vencedor.innerHTML = "Deu Empate!";
+                    vencedor.style.color = 'orange';
+                }
+            }
+        }
+
+        function resetarOpacityInimigo() {
+            const escolhasInimigo = document.querySelectorAll('.escolhaInimigo div');
+            for (var i = 0; i < escolhasInimigo.length; i++) {
+                escolhasInimigo[i].childNodes[0].style.opacity = 0.3;
+            }
+        }
+
+        function inimigoJogar() {
+            let rand = Math.floor(Math.random() * 3);
+
+            const escolhasInimigo = document.querySelectorAll('.escolhaInimigo div');
+
+            resetarOpacityInimigo();
+
+            for (var i = 0; i < escolhasInimigo.length; i++) {
+                if (i == rand) {
+                    escolhasInimigo[i].childNodes[0].style.opacity = 1;
+                    opcaoInimigo = escolhasInimigo[i].childNodes[0].getAttribute('opt');
+                }
+            }
+
+            validarVitoria();
+        }
+
+        function resetOpacityPlayer() {
+            for (var i = 0; i < elementos.length; i++) {
+                elementos[i].style.opacity = 0.3;
+            }
+        }
+
+        for (var i = 0; i < elementos.length; i++) {
+            elementos[i].addEventListener('click', (t) => {
+                resetOpacityPlayer();
+                t.target.style.opacity = 1;
+                opcaoJogador = t.target.getAttribute("opt");
+
+                inimigoJogar();
+
+            });
+        }
+
+    </script>
+
 </body>
 
 </html>
