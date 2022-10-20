@@ -45,19 +45,27 @@
         var elementos = document.querySelectorAll('.escolhaJogador div > img');
         var opcaoJogador = "";
         var opcaoInimigo = "";
-        var contadorJogador = "";
-        var contadorInimigo = "";
+        var contadorJogador = 1;
+        var contadorInimigo = 1;
         var nome = document.getElementById("jogador");
 
-        function comecarJogo(){
-            var x;
+        /*function comecarJogo(){
 
             nome = prompt("Qual o seu Nome?");
 
             if(nome != null){
                 document.getElementById("jogador").innerHTML = nome;
             }
-        }
+        }*/
+
+        setTimeout(function comecarJogo(){
+
+            nome = prompt("Qual o seu Nome?");
+
+            if (nome != null) {
+                document.getElementById("jogador").innerHTML = nome;
+            }
+        },10);
 
         function validarVitoria() {
 
@@ -73,11 +81,11 @@
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
-                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo ++;
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
-                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
+                    document.getElementById("placarJogador").innerHTML = contadorJogador ++;
                 }
             }
 
@@ -85,14 +93,14 @@
                 if (opcaoInimigo == "pedraD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
-                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
+                    document.getElementById("placarJogador").innerHTML = contadorJogador ++;
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Deu Empate!";
                     vencedor.style.color = 'orange';
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
-                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo ++;
                 }
             }
 
@@ -100,11 +108,11 @@
                 if (opcaoInimigo == "pedraD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
-                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo ++;
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
-                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
+                    document.getElementById("placarJogador").innerHTML = contadorJogador ++;
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Deu Empate!";
                     vencedor.style.color = 'orange';
@@ -159,6 +167,8 @@
             document.getElementById("placarInimigo").innerHTML = 0;
             document.getElementById("placarJogador").innerHTML = 0;
             document.getElementById("vencedor").innerHTML = "";
+            contadorInimigo = 0;
+            contadorJogador = 0;
         }
 
     </script>
