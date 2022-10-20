@@ -50,9 +50,16 @@
     color: white;
 }
 
-.vencedor{
-    text-align: center;
-    font-size: 30px;
+.comecar {
+    width: 200px;
+    height: 45px;
+    position: absolute;
+    top: 22%;
+    left: 20%;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .containerJogo {
@@ -62,43 +69,9 @@
     padding: 10px;
 }
 
-.jogar {
-    position: absolute;
-    top: 500px;
-    left: 800px;
-    height: 100px;
-    width: 300px;
-    font-size: 20px;
-    color: white;
-    background-color: orange;
-}
-
 .escolhaInimigo,
 .escolhaJogador{
-    display: flex;
-    margin-right: -65%;
     width: 50%;
-}
-
-.resultado {
-    font-size: 40px;
-    color: white;
-    position: relative;
-    left: 780px;
-    top: 30px;
-    width: 30vw;
-    text-align: center;
-}
-
-.limpar {
-    width: 200px;
-    height: 45px;
-    position: relative;
-    top: 95px;
-    left: 1500px;
-    background-color: rgb(156, 31, 31);
-    color: white;
-    font-style: unset;
 }
 
 .escolhaJogador img,
@@ -106,6 +79,42 @@
     max-width: 200px;
     opacity: 0.3;
     cursor: pointer;
+    margin-bottom: 70px;
+}
+
+.imgJogo{
+    display: flex;
+    margin-right: -75%;
+}
+
+.resultado {
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    left: 34%;
+    top: 20%;
+    width: 550px;
+    text-align: center;
+}
+
+.vencedor{
+    text-align: center;
+    font-size: 80px;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+.limpar {
+    width: 200px;
+    height: 45px;
+    position: absolute;
+    top: 22%;
+    left: 66%;
+    background-color: rgb(156, 31, 31);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .linkHome {

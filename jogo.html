@@ -10,30 +10,32 @@
 <body>
     <h1 class="tituloJogo">Você é o jogador da <span style="color: red; font-style: italic;">ESQUERDA</span>, faça sua
         jogada:</h1>
-    <h2 class="vencedor"></h2>
+    <h2 class="vencedor" id="vencedor"></h2>
+    <div><button class="comecar" onclick="comecarJogo()">COMEÇAR</button></div>
+    <div><button class="limpar" onclick="limpar()">REINICIAR</button></div>
+    <hr>
+    <div class="placar">
+        <table class="resultado" border="5" bordercolor="white" cellpadding="10">
+            <tr>
+                <td id="jogador">Jogador 1</td>
+                <td id="placarJogador">0</td>
+                <td>X</td>
+                <td id="placarInimigo">0</td>
+                <td>NPC</td>
+            </tr>
+        </table>
+    </div>
     <div class="containerJogo">
         <div class="imgJogo">
             <div class="escolhaJogador">
-                <div><img class="pedraE" src="/img/Pedra Esquerda.png"></div>
-                <div><img class="papelE" src="/img/Papel Esquerda.png"></div>
-                <div><img class="tesouraE" src="/img/Tesoura Esquerda.png"></div>
+                <div><img opt="pedraE" src="/img/Pedra Esquerda.png"></div>
+                <div><img opt="papelE" src="/img/Papel Esquerda.png"></div>
+                <div><img opt="tesouraE" src="/img/Tesoura Esquerda.png"></div>
             </div>
             <div class="escolhaInimigo">
-                <div><img class="pedraD" src="/img/Pedra Direita.png"></div>
-                <div><img class="papelD" src="/img/Papel Direita.png"></div>
-                <div><img class="tesouraD" src="/img/Tesoura Direita.png"></div>
-            </div>
-            <div class="placar">
-                <button class="limpar">REINICIAR</button>
-                <table class="resultado" border="5" bordercolor="white" cellpadding="10">
-                    <tr>
-                        <td>Jogador 1</td>
-                        <td>0</td>
-                        <td>X</td>
-                        <td>0</td>
-                        <td>Jogador 2</td>
-                    </tr>
-                </table>
+                <div><img opt="pedraD" src="/img/Pedra Direita.png"></div>
+                <div><img opt="papelD" src="/img/Papel Direita.png"></div>
+                <div><img opt="tesouraD" src="/img/Tesoura Direita.png"></div>
             </div>
         </div>
     </div>
@@ -43,21 +45,39 @@
         var elementos = document.querySelectorAll('.escolhaJogador div > img');
         var opcaoJogador = "";
         var opcaoInimigo = "";
+        var contadorJogador = "";
+        var contadorInimigo = "";
+        var nome = document.getElementById("jogador");
+
+        function comecarJogo(){
+            var x;
+
+            nome = prompt("Qual o seu Nome?");
+
+            if(nome != null){
+                document.getElementById("jogador").innerHTML = nome;
+            }
+        }
 
         function validarVitoria() {
 
             let vencedor = document.querySelector(".vencedor");
 
             if (opcaoJogador == "pedraE") {
+                if(nome == "Jogador 1"){
+                alert("Clique em COMEÇAR primeiro!");
+                }
                 if (opcaoInimigo == "pedraD") {
                     vencedor.innerHTML = "Deu Empate!";
                     vencedor.style.color = 'orange';
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
+                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
                 }
             }
 
@@ -65,12 +85,14 @@
                 if (opcaoInimigo == "pedraD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
+                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Deu Empate!";
                     vencedor.style.color = 'orange';
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
                 }
             }
 
@@ -78,9 +100,11 @@
                 if (opcaoInimigo == "pedraD") {
                     vencedor.innerHTML = "Vitória do Inimigo!";
                     vencedor.style.color = 'red';
+                    document.getElementById("placarInimigo").innerHTML = contadorInimigo + 1;
                 } else if (opcaoInimigo == "papelD") {
                     vencedor.innerHTML = "Vitória do Player!";
                     vencedor.style.color = 'greenyellow';
+                    document.getElementById("placarJogador").innerHTML = contadorJogador + 1;
                 } else if (opcaoInimigo == "tesouraD") {
                     vencedor.innerHTML = "Deu Empate!";
                     vencedor.style.color = 'orange';
@@ -112,7 +136,7 @@
             validarVitoria();
         }
 
-        function resetOpacityPlayer() {
+        function resetarOpacityPlayer() {
             for (var i = 0; i < elementos.length; i++) {
                 elementos[i].style.opacity = 0.3;
             }
@@ -120,13 +144,21 @@
 
         for (var i = 0; i < elementos.length; i++) {
             elementos[i].addEventListener('click', (t) => {
-                resetOpacityPlayer();
+                resetarOpacityPlayer();
                 t.target.style.opacity = 1;
                 opcaoJogador = t.target.getAttribute("opt");
 
                 inimigoJogar();
 
             });
+        }
+
+        function limpar(){
+            resetarOpacityPlayer();
+            resetarOpacityInimigo();
+            document.getElementById("placarInimigo").innerHTML = 0;
+            document.getElementById("placarJogador").innerHTML = 0;
+            document.getElementById("vencedor").innerHTML = "";
         }
 
     </script>
