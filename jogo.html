@@ -8,12 +8,9 @@
 </head>
 
 <body>
-    <h1 class="tituloJogo">Você é o jogador da <span style="color: red; font-style: italic;">ESQUERDA</span>, faça sua
-        jogada:</h1>
     <h2 class="vencedor" id="vencedor"></h2>
-    <div><button class="comecar" onclick="comecarJogo()">COMEÇAR</button></div>
+    <div><button class="alterar" onclick="trocarJogador()">Trocar Jogador</button></div>
     <div><button class="limpar" onclick="limpar()">REINICIAR</button></div>
-    <hr>
     <div class="placar">
         <table class="resultado" border="5" bordercolor="white" cellpadding="10">
             <tr>
@@ -25,6 +22,7 @@
             </tr>
         </table>
     </div>
+    <hr>
     <div class="containerJogo">
         <div class="imgJogo">
             <div class="escolhaJogador">
@@ -63,9 +61,19 @@
             nome = prompt("Qual o seu Nome?");
 
             if (nome != null) {
-                document.getElementById("jogador").innerHTML = nome;
+                document.getElementById('jogador').innerHTML = nome.toUpperCase();
             }
         },10);
+
+        function trocarJogador(){
+
+            nomeAtual = prompt("Qual o Nome do Novo Jogador?");
+
+            if (nomeAtual != null) {
+                document.getElementById('jogador').innerHTML = nomeAtual.toUpperCase();
+                limpar();
+            }
+        }
 
         function validarVitoria() {
 
@@ -167,8 +175,8 @@
             document.getElementById("placarInimigo").innerHTML = 0;
             document.getElementById("placarJogador").innerHTML = 0;
             document.getElementById("vencedor").innerHTML = "";
-            contadorInimigo = 0;
-            contadorJogador = 0;
+            contadorInimigo = 1;
+            contadorJogador = 1;
         }
 
     </script>
