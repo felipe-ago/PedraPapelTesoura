@@ -1,15 +1,13 @@
-* {
-
-}
+* {}
 
 .main {
     text-align: center;
 }
 
-body{
+body {
     height: 100VH;
     background-image: linear-gradient(to bottom, #4B0082, rgb(43, 1, 43));
-    
+
 }
 
 .tituloHome {
@@ -90,7 +88,7 @@ body{
 }
 
 .escolhaInimigo,
-.escolhaJogador{
+.escolhaJogador {
     width: 50%;
 }
 
@@ -102,12 +100,12 @@ body{
     margin-bottom: 70px;
 }
 
-.imgJogo{
+.imgJogo {
     display: flex;
     margin-right: -75%;
 }
 
-.vencedor{
+.vencedor {
     text-align: center;
     font-size: 80px;
     position: absolute;
@@ -128,3 +126,44 @@ body{
     left: 37%;
 }
 
+@media screen and (max-width: 768px) {
+
+    .placar {
+        width: 1050%;
+        text-align: center;
+        flex-wrap: wrap;
+        padding: 8px 0;
+    }
+
+    .alterar,
+    .limpar {
+        width: auto;
+    }
+
+    .box-diferenciais {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    section.marcas>.center {
+        flex-wrap: nowrap;
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    section.marcas img {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .check-list {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .img-beneficios {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
